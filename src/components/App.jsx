@@ -5,7 +5,7 @@ import { ContactList } from './ContactList/ContactList';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useSelector } from 'react-redux';
-import { selectContacts } from '../redux/contacts/contacts-selectors';
+import { selectContacts } from '../redux/contacts-selectors';
 
 export default function App() {
   const contacts = useSelector(selectContacts);

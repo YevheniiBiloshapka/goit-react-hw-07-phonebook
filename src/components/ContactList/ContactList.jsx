@@ -1,8 +1,8 @@
 import { List, ListItem, Button, Results, Error } from './ContactList.styled';
 import { VscTrash } from 'react-icons/vsc';
 import { useDispatch, useSelector } from 'react-redux';
-import { selectFilter } from '../../redux/contacts/contacts-selectors';
-import { deleteContact } from '../../redux/contacts/contacts-slise';
+import { selectFilter } from '../../redux/contacts-selectors';
+import { deleteContact } from '../../redux/contacts-slise';
 
 export const ContactList = ({ contacts }) => {
   const dispatch = useDispatch();

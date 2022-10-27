@@ -3,7 +3,7 @@ import { Formik, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import { nanoid } from 'nanoid';
 import { useDispatch } from 'react-redux';
-import { addContact } from '../../redux/contacts/contacts-slise';
+import { addContact } from '../../redux/contacts-slise';
 
 let schema = Yup.object().shape({
   name: Yup.string().min(4).max(32).required(),
