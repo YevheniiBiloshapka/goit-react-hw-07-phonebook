@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { Field, Form } from 'formik';
+import PhoneInput from 'react-phone-number-input/input';
 
 export const FormBox = styled(Form)`
   display: flex;
@@ -20,7 +21,29 @@ export const Label = styled.label`
   }
 `;
 
-export const Input = styled(Field)`
+export const InputName = styled(Field)`
+  background: #f4f4f4;
+  border: 1px solid #c5c5c5;
+  border-radius: 6px;
+  padding: 10px 16px;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 18px;
+
+  letter-spacing: 0.16px;
+
+  outline: none;
+
+  &:hover,
+  &:focus {
+    border: 1px solid #4cc6f5;
+  }
+
+  &::placeholder {
+    color: #a8a8a8;
+  }
+`;
+export const InputNumber = styled(PhoneInput)`
   background: #f4f4f4;
   border: 1px solid #c5c5c5;
   border-radius: 6px;
