@@ -7,13 +7,13 @@ import {
   Error,
 } from './ContactForm.styled';
 import { Formik, ErrorMessage } from 'formik';
+import { messageError } from 'components/messageNotify/message';
 import { Spiner } from 'components/Spiner/spiner';
 import * as Yup from 'yup';
 import { nanoid } from 'nanoid';
 import { useDispatch, useSelector } from 'react-redux';
 import { addContacts } from 'redux/operation';
 import { useState } from 'react';
-import { messageError } from 'components/message/message';
 
 export const ContactForm = () => {
   const [number, setNumber] = useState('');
@@ -75,7 +75,7 @@ export const ContactForm = () => {
             title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
             required
             maxLength="16"
-            placeholder="_ (___) ___-____"
+            placeholder="_(___)___-____"
           />
         </Label>
         <Button type="submit">

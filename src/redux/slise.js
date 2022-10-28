@@ -1,10 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { fetchContacts, deleteContacts, addContacts } from './operation';
-import {
-  messageAdd,
-  messageRemove,
-  messageError,
-} from 'components/message/message';
+import { messageAdd, messageRemove } from 'components/messageNotify/message';
 
 const contactSlice = createSlice({
   name: 'contacts',
