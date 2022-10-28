@@ -31,8 +31,9 @@ const LdsEllipsis3 = keyframes`
 export const Ellipsis = styled.div`
   margin: 0 auto;
   display: inline-block;
-  position: relative;
-  width: 80px;
+  position: absolute;
+  right: 20px;
+  width: 70px;
   height: 18px;
   & div {
     position: absolute;
@@ -40,7 +41,7 @@ export const Ellipsis = styled.div`
     width: 12px;
     height: 12px;
     border-radius: 50%;
-    background: #fff;
+    background: #4cc6f5;
     animation-timing-function: cubic-bezier(0, 1, 1, 0);
   }
 

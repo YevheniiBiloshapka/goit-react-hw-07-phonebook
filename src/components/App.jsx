@@ -7,9 +7,11 @@ import 'react-toastify/dist/ReactToastify.css';
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchContacts } from 'redux/operation';
 import { useEffect } from 'react';
+import { Spiner } from 'components/Spiner/spiner';
 
 export default function App() {
   const contacts = useSelector(state => state.contacts.contacts);
+  const isLoading = useSelector(state => state.contacts.isLoading);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -19,7 +21,10 @@ export default function App() {
   return (
     <Section>
       <Box>
+        {isLoading && <Spiner />}
+
         <h2>Contacts</h2>
+
         <Filter />
 
         {contacts.length === 0 ? (

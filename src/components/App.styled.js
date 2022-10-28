@@ -11,7 +11,7 @@ export const Section = styled.section`
 export const Box = styled.div`
   width: 334px;
   padding: 23px;
-
+  position: relative;
   background: #ffffff;
   box-shadow: 0px 1px 4px rgba(126, 147, 255, 0.2);
   border-radius: 6px;
