@@ -11,7 +11,6 @@ import { useEffect } from 'react';
 export default function App() {
   const contacts = useSelector(state => state.contacts.contacts);
   const dispatch = useDispatch();
-  console.log(useSelector(state => state.contacts.isLoading));
 
   useEffect(() => {
     dispatch(fetchContacts());

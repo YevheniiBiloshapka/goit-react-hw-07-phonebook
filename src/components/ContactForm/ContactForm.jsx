@@ -7,15 +7,19 @@ import {
   Error,
 } from './ContactForm.styled';
 import { Formik, ErrorMessage } from 'formik';
+import { Spiner } from 'components/Spiner/spiner';
 import * as Yup from 'yup';
 import { nanoid } from 'nanoid';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { addContacts } from 'redux/operation';
 import { useState } from 'react';
+import { messageError } from 'components/message/message';
 
 export const ContactForm = () => {
   const [number, setNumber] = useState('');
   const dispatch = useDispatch();
+  const contacts = useSelector(state => state.contacts.contacts);
+  const isLoading = useSelector(state => state.contacts.isLoading);
 
   const handleSubmit = ({ name }, { resetForm }) => {
     const newContact = {
@@ -23,9 +27,19 @@ export const ContactForm = () => {
       name: name,
       number: number,
     };
-    dispatch(addContacts(newContact));
-    setNumber('');
-    resetForm();
+    if (
+      contacts.some(
+        contact =>
+          contact.number.toLocaleLowerCase() === number.toLocaleLowerCase()
+      )
+    ) {
+      messageError(newContact);
+      return;
+    } else {
+      dispatch(addContacts(newContact));
+      setNumber('');
+      resetForm();
+    }
   };
 
   return (
@@ -64,7 +78,9 @@ export const ContactForm = () => {
             placeholder="_ (___) ___-____"
           />
         </Label>
-        <Button type="submit">Add contact</Button>
+        <Button type="submit">
+          {!isLoading ? <span>Add contact</span> : <Spiner />}
+        </Button>
       </FormBox>
     </Formik>
   );
