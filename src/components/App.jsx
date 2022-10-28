@@ -21,8 +21,8 @@ export default function App() {
   return (
     <Section>
       <Box>
-        <h2>Contacts</h2>
         {isLoading && <Spiner />}
+        <h2>Contacts</h2>
 
         <Filter />
 
