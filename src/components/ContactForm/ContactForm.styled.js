@@ -22,7 +22,7 @@ export const Label = styled.label`
 `;
 
 export const InputName = styled(Field)`
-  background: #f4f4f4;
+  background: #f4f4f3;
   border: 1px solid #c5c5c5;
   border-radius: 6px;
   padding: 10px 16px;
