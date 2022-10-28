@@ -10,7 +10,7 @@ import { Formik, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import { nanoid } from 'nanoid';
 import { useDispatch } from 'react-redux';
-import { addContact } from '../../redux/contacts-slise';
+import { addContacts } from 'redux/operation';
 import { useState } from 'react';
 
 export const ContactForm = () => {
@@ -23,7 +23,7 @@ export const ContactForm = () => {
       name: name,
       number: number,
     };
-    dispatch(addContact(newContact));
+    dispatch(addContacts(newContact));
     setNumber('');
     resetForm();
   };

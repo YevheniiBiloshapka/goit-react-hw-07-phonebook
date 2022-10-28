@@ -1,12 +1,10 @@
 import { List, ListItem, Button, Results, Error } from './ContactList.styled';
 import { VscTrash } from 'react-icons/vsc';
 import { useDispatch, useSelector } from 'react-redux';
-import { selectFilter } from '../../redux/contacts-selectors';
-import { deleteContact } from '../../redux/contacts-slise';
-
+import { deleteContacts } from 'redux/operation';
 export const ContactList = ({ contacts }) => {
   const dispatch = useDispatch();
-  const filter = useSelector(selectFilter);
+  const filter = useSelector(state => state.filter.filter);
 
   const visualContacts = contacts.filter(({ name }) =>
     name.toLowerCase().includes(filter)
@@ -23,7 +21,7 @@ export const ContactList = ({ contacts }) => {
             <p>
               {name}: <span>{number}</span>
             </p>
-            <Button onClick={() => dispatch(deleteContact(id))}>
+            <Button onClick={() => dispatch(deleteContacts(id))}>
               <VscTrash />
             </Button>
           </ListItem>

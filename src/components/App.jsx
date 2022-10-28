@@ -4,11 +4,18 @@ import { Filter } from './Filter/Filter';
 import { ContactList } from './ContactList/ContactList';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { useSelector } from 'react-redux';
-import { selectContacts } from '../redux/contacts-selectors';
+import { useSelector, useDispatch } from 'react-redux';
+import { fetchContacts } from 'redux/operation';
+import { useEffect } from 'react';
 
 export default function App() {
-  const contacts = useSelector(selectContacts);
+  const contacts = useSelector(state => state.contacts.contacts);
+  const dispatch = useDispatch();
+  console.log(useSelector(state => state.contacts.isLoading));
+
+  useEffect(() => {
+    dispatch(fetchContacts());
+  }, [dispatch]);
 
   return (
     <Section>
